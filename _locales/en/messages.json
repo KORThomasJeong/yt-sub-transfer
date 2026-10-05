@@ -1,0 +1,142 @@
+{
+  "extName": {
+    "message": "Subscription Transfer for YouTube"
+  },
+  "extDescription": {
+    "message": "Export your YouTube subscriptions to JSON/CSV and import them into another account. Truly free: no ads, no server, no API key."
+  },
+  "openYouTube": {
+    "message": "Open YouTube"
+  },
+  "statusNotYouTube": {
+    "message": "Open a youtube.com tab (signed in) and click the icon again."
+  },
+  "statusReady": {
+    "message": "Signed in. Ready."
+  },
+  "errNotLoggedIn": {
+    "message": "You are not signed in to YouTube in this tab."
+  },
+  "errNotReady": {
+    "message": "YouTube page is not fully loaded yet. Reload the tab and try again."
+  },
+  "errGeneric": {
+    "message": "Error: $p1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "exportTitle": {
+    "message": "Export"
+  },
+  "exportHint": {
+    "message": "Saves every channel this account is subscribed to."
+  },
+  "exportJson": {
+    "message": "Export JSON"
+  },
+  "exportCsv": {
+    "message": "Export CSV"
+  },
+  "exporting": {
+    "message": "Reading subscriptions…"
+  },
+  "exportDone": {
+    "message": "Exported $p1$ channels.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "importTitle": {
+    "message": "Import"
+  },
+  "importHint": {
+    "message": "Sign in to the target account first. Accepts this extension’s JSON, Google Takeout subscriptions.csv, NewPipe/FreeTube JSON."
+  },
+  "fileParsed": {
+    "message": "$p1$ channels found in file.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "fileEmpty": {
+    "message": "No channel IDs found in this file."
+  },
+  "delayLabel": {
+    "message": "Delay between subscribes (seconds)"
+  },
+  "importStart": {
+    "message": "Start import"
+  },
+  "importStop": {
+    "message": "Stop"
+  },
+  "confirmImport": {
+    "message": "Subscribe this account to up to $p1$ channels? Channels already subscribed are skipped.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "phaseChecking": {
+    "message": "Checking current subscriptions…"
+  },
+  "phaseVerifying": {
+    "message": "Verifying result…"
+  },
+  "phaseSubscribing": {
+    "message": "$p1$ / $p2$  $p3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "progressCounts": {
+    "message": "Subscribed $p1$ · Skipped $p2$ · Failed $p3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "importDone": {
+    "message": "Import finished."
+  },
+  "importStopped": {
+    "message": "Import stopped."
+  },
+  "verifiedCount": {
+    "message": "Verified on YouTube: $p1$ of $p2$ processed.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "downloadFailed": {
+    "message": "Download failed list (CSV)"
+  }
+}

@@ -1,0 +1,31 @@
+It's really free.
+
+There are so many "subscription transfer" extensions that push payments or ask for strange permissions that I built this one myself with Claude Code.
+I don't want your pocket change. No ads, no server. Just enjoy it.
+
+■ What it does
+• Export: save every channel your account is subscribed to as a JSON or CSV file
+• Import: subscribe another account to the same channels in one go
+• Skips channels you are already subscribed to
+• When it finishes, it checks YouTube again to verify the result and lets you download any failures as CSV
+• Also imports Google Takeout subscriptions.csv and NewPipe / FreeTube backups
+• The CSV uses the same columns as Google Takeout, so FreeTube, NewPipe and other apps can read it
+
+■ How to use
+1. On a YouTube tab signed in to your old account, click the icon → "Export JSON"
+2. Switch to the new account
+3. Click the icon → choose the file → "Start import"
+   (You can close the popup and it keeps going. Just don't close the tab.)
+
+■ Why you can trust it
+• Everything runs inside your browser
+• It talks to nothing but youtube.com
+• It never collects or sends personal data, passwords or cookies
+• No sign-up, no payment, no API key
+• The only permission is access to youtube.com
+• Open source (MIT): https://github.com/KORThomasJeong/yt-sub-transfer
+
+■ Note
+• With hundreds of channels, YouTube may slow you down. If many fail, raise the delay to 3–5 seconds and run the same file again; channels already subscribed are skipped.
+
+Not affiliated with or endorsed by YouTube or Google.

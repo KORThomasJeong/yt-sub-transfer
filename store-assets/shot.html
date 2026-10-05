@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 800px; overflow: hidden; }
+  body {
+    font-family: "Malgun Gothic", "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(135deg, #fff5f4 0%, #ffffff 55%, #f4f6fb 100%);
+    color: #0f0f0f;
+    display: flex; align-items: center;
+    padding: 0 64px;
+    gap: 48px;
+  }
+  .copy { flex: 0 0 470px; }
+  .badge { display: inline-block; background: #cc0000; color: #fff; font-weight: 700; font-size: 18px; padding: 6px 14px; border-radius: 999px; margin-bottom: 22px; }
+  h1 { font-size: 46px; line-height: 1.25; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 22px; }
+  p.lead { font-size: 21px; line-height: 1.6; color: #3c3c3c; margin-bottom: 26px; }
+  ul { list-style: none; padding: 0; }
+  li { font-size: 20px; line-height: 1.5; margin: 10px 0; padding-left: 34px; position: relative; color: #222; }
+  li::before { content: ""; position: absolute; left: 0; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: #cc0000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+  .quote { font-size: 21px; line-height: 1.7; color: #333; border-left: 4px solid #cc0000; padding: 4px 0 4px 18px; margin-bottom: 24px; }
+
+  .window { flex: 1; height: 700px; background: #fff; border-radius: 14px; box-shadow: 0 24px 60px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.06); overflow: hidden; position: relative; }
+  .bar { height: 46px; background: #f1f3f4; display: flex; align-items: center; gap: 8px; padding: 0 14px; border-bottom: 1px solid #e3e3e3; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: #d9d9d9; }
+  .addr { flex: 1; margin: 0 10px; height: 28px; border-radius: 14px; background: #fff; font-size: 14px; color: #555; display: flex; align-items: center; padding: 0 14px; }
+  .ext { width: 26px; height: 26px; border-radius: 6px; background: url("/icons/icon-48.png") center/22px no-repeat; outline: 2px solid #cc000033; outline-offset: 2px; }
+  .page { padding: 26px 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 18px; }
+  .card .thumb { height: 82px; border-radius: 10px; background: #ececec; margin-bottom: 10px; }
+  .card .l1 { height: 12px; width: 80%; background: #e2e2e2; border-radius: 6px; margin-bottom: 7px; }
+  .card .l2 { height: 10px; width: 55%; background: #ececec; border-radius: 5px; }
+  .shade { position: absolute; inset: 46px 0 0 0; background: rgba(255,255,255,.35); }
+  .popup { position: absolute; top: 54px; right: 16px; width: 340px; transform: scale(var(--scale, 1.2)); transform-origin: top right; border-radius: 10px; overflow: hidden; box-shadow: 0 12px 36px rgba(0,0,0,.22); background: #fff; }
+  .popup iframe { display: block; width: 340px; height: 520px; border: 0; }
+</style>
+</head>
+<body>
+  <div class="copy" id="copy"></div>
+  <div class="window">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr">youtube.com/feed/channels</span><span class="ext"></span></div>
+    <div class="page" id="grid"></div>
+    <div class="shade"></div>
+    <div class="popup"><iframe id="popup"></iframe></div>
+  </div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const scene = q.get('scene') || 'export';
+  const lang = q.get('lang') || 'ko';
+  const T = {
+    ko: {
+      export: { badge: '내보내기', h: '구독 목록을<br>파일 하나로', lead: '버튼 한 번이면 지금 계정의 모든 구독 채널이 저장됩니다.', items: ['JSON 또는 CSV로 저장', 'Google Takeout과 같은 형식이라 FreeTube·NewPipe에서도 사용', '로그인만 되어 있으면 끝, API 키 필요 없음'], popup: 'export' },
+      import: { badge: '가져오기', h: '다른 계정으로<br>그대로 옮기기', lead: '저장한 파일을 고르고 시작만 누르세요.', items: ['이미 구독 중인 채널은 알아서 건너뜀', '팝업을 닫아도 계속 진행', '끝나면 실제로 구독됐는지 다시 확인', 'Google Takeout·NewPipe 백업 파일도 가능'], popup: 'import' },
+      free: { badge: '진짜로 무료입니다', h: '광고도, 결제도,<br>서버도 없습니다', quote: '스캠이 하도 많아서 Claude Code로 직접 만들었어요.<br>푼돈 받고 싶지도 않고, 그냥 마음껏 쓰세요.', items: ['모든 처리는 내 브라우저 안에서만', 'youtube.com 외에는 아무 데도 연결 안 함', '개인정보 수집 0, 소스코드 공개(MIT)'], popup: 'done' },
+    },
+    en: {
+      export: { badge: 'Export', h: 'All your subscriptions<br>in one file', lead: 'One click saves every channel this account is subscribed to.', items: ['Save as JSON or CSV', 'Google Takeout–compatible, works with FreeTube & NewPipe', 'Just be signed in — no API key needed'], popup: 'export' },
+      import: { badge: 'Import', h: 'Move them to<br>another account', lead: 'Pick the file and press start.', items: ['Skips channels you already follow', 'Keeps running even if you close the popup', 'Verifies the result when it finishes', 'Also reads Google Takeout & NewPipe backups'], popup: 'import' },
+      free: { badge: 'Truly free', h: 'No ads.<br>No payments.<br>No server.', quote: 'There are so many scams out there that I built this myself with Claude Code.<br>I don\'t want your pocket change — just enjoy it.', items: ['Everything runs inside your browser', 'Talks to nothing but youtube.com', 'Zero data collected, open source (MIT)'], popup: 'done' },
+    },
+  };
+  const s = T[lang][scene];
+  document.getElementById('copy').innerHTML =
+    `<span class="badge">${s.badge}</span><h1>${s.h}</h1>` +
+    (s.lead ? `<p class="lead">${s.lead}</p>` : '') +
+    (s.quote ? `<p class="quote">${s.quote}</p>` : '') +
+    `<ul>${s.items.map((i) => `<li>${i}</li>`).join('')}</ul>`;
+  document.getElementById('grid').innerHTML = Array.from({ length: 9 }, () => '<div class="card"><div class="thumb"></div><div class="l1"></div><div class="l2"></div></div>').join('');
+  const frame = document.getElementById('popup');
+  frame.src = `/popup/popup.html?mock=${s.popup}&lang=${lang}`;
+  addEventListener('message', (e) => {
+    if (!e.data || !e.data.popupHeight) return;
+    frame.style.height = e.data.popupHeight + 'px';
+    const room = 700 - 54 - 20;
+    document.documentElement.style.setProperty('--scale', Math.min(1.3, room / e.data.popupHeight).toFixed(3));
+  });
+</script>
+</body>
+</html>

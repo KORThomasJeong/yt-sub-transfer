@@ -1,0 +1,142 @@
+{
+  "extName": {
+    "message": "구독 내보내기·가져오기 (YouTube용)"
+  },
+  "extDescription": {
+    "message": "YouTube 구독을 JSON/CSV로 내보내고 다른 계정으로 가져옵니다. 진짜 무료, 광고·서버·API 키 없음."
+  },
+  "openYouTube": {
+    "message": "YouTube 열기"
+  },
+  "statusNotYouTube": {
+    "message": "로그인된 youtube.com 탭에서 아이콘을 다시 눌러 주세요."
+  },
+  "statusReady": {
+    "message": "로그인 확인됨. 사용 준비 완료."
+  },
+  "errNotLoggedIn": {
+    "message": "이 탭에서 YouTube에 로그인되어 있지 않습니다."
+  },
+  "errNotReady": {
+    "message": "YouTube 페이지가 아직 로드되지 않았습니다. 새로고침 후 다시 시도하세요."
+  },
+  "errGeneric": {
+    "message": "오류: $p1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "exportTitle": {
+    "message": "내보내기"
+  },
+  "exportHint": {
+    "message": "현재 계정의 모든 구독 채널을 파일로 저장합니다."
+  },
+  "exportJson": {
+    "message": "JSON 내보내기"
+  },
+  "exportCsv": {
+    "message": "CSV 내보내기"
+  },
+  "exporting": {
+    "message": "구독 목록을 읽는 중…"
+  },
+  "exportDone": {
+    "message": "채널 $p1$개를 내보냈습니다.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "importTitle": {
+    "message": "가져오기"
+  },
+  "importHint": {
+    "message": "먼저 대상 계정으로 로그인하세요. 이 확장의 JSON, Google Takeout subscriptions.csv, NewPipe/FreeTube JSON을 지원합니다."
+  },
+  "fileParsed": {
+    "message": "파일에서 채널 $p1$개를 찾았습니다.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "fileEmpty": {
+    "message": "파일에서 채널 ID를 찾지 못했습니다."
+  },
+  "delayLabel": {
+    "message": "구독 간 대기 시간(초)"
+  },
+  "importStart": {
+    "message": "가져오기 시작"
+  },
+  "importStop": {
+    "message": "중지"
+  },
+  "confirmImport": {
+    "message": "이 계정으로 최대 $p1$개 채널을 구독할까요? 이미 구독 중인 채널은 건너뜁니다.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "phaseChecking": {
+    "message": "현재 구독 목록 확인 중…"
+  },
+  "phaseVerifying": {
+    "message": "결과 검증 중…"
+  },
+  "phaseSubscribing": {
+    "message": "$p1$ / $p2$  $p3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "progressCounts": {
+    "message": "구독 $p1$ · 건너뜀 $p2$ · 실패 $p3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "importDone": {
+    "message": "가져오기 완료."
+  },
+  "importStopped": {
+    "message": "가져오기를 중지했습니다."
+  },
+  "verifiedCount": {
+    "message": "YouTube 확인 결과: 처리한 $p2$개 중 $p1$개 구독됨.",
+    "placeholders": {
+      "p2": {
+        "content": "$2"
+      },
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "downloadFailed": {
+    "message": "실패 목록 다운로드 (CSV)"
+  }
+}
