@@ -1,4 +1,4 @@
-# YouTube 구독 내보내기·가져오기 (Subscription Transfer for YouTube)
+# YouTube 구독 내보내기·가져오기 (Subscriptions Export & Import for YouTube)
 
 YouTube 구독 목록을 파일로 내보내고, 다른 계정으로 가져오는 크롬 확장 프로그램(Manifest V3)입니다. 완전 무료이고 서버나 API 키가 필요 없습니다.
 

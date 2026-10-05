@@ -10,7 +10,7 @@
 
 ## 스토어 등록 정보
 
-- **이름**: Subscription Transfer for YouTube / 구독 내보내기·가져오기 (YouTube용)
+- **이름**: Subscriptions Export & Import for YouTube / 구독 내보내기·가져오기 (YouTube용)
   (상표 정책: 이름이 "YouTube"로 시작하면 안 되고 "for YouTube" 형태로 써야 합니다. 아이콘에 YouTube 로고를 쓰면 안 됩니다.)
 - **카테고리**: 생산성(Productivity) 또는 도구(Tools)
 - **언어**: 한국어, 영어

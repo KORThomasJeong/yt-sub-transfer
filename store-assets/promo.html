@@ -25,7 +25,7 @@
   const lang = new URLSearchParams(location.search).get('lang') || 'ko';
   const t = {
     ko: ['구독 내보내기·가져오기<br>(YouTube용)', '진짜로 무료입니다', '광고 없음 · 서버 없음 · 개인정보 수집 없음'],
-    en: ['Subscription Transfer<br>for YouTube', 'Truly free', 'No ads · No server · No data collected'],
+    en: ['Subscriptions Export<br>&amp; Import for YouTube', 'Truly free', 'No ads · No server · No data collected'],
   }[lang];
   document.getElementById('name').innerHTML = t[0];
   document.getElementById('free').textContent = t[1];

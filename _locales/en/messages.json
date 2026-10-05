@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "Subscription Transfer for YouTube"
+    "message": "Subscriptions Export & Import for YouTube"
   },
   "extDescription": {
     "message": "Export your YouTube subscriptions to JSON/CSV and import them into another account. Truly free: no ads, no server, no API key."
